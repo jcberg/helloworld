@@ -1,6 +1,17 @@
-""" Print 'Hello World!' using a __main__ function entry point and collecting CLI args with argparse."""
+""" Print 'Hello World!' using:
+    a __main__ function entry point
+    collection of CLI args with argparse
+    docstrings in modules
+    test via pytest module
+"""
 
 import argparse
+
+def compose_salutation(greeting, recipient):
+    """ Combine greeting and recipient into a salutation message """
+    salutation = greeting + " " + recipient + "!"
+    return salutation
+    
 
 def main():
     """ Print 'Hello World!' """
@@ -18,8 +29,8 @@ def main():
     if cli_args.recipient:
         recipient = cli_args.recipient
 
-    hello_message = greeting + " " + recipient
-    print(f'{greeting} {recipient}!')
-
+    salutation = compose_salutation(greeting, recipient)
+    print(f'{salutation}')
+    
 if __name__ == "__main__":
     main()
